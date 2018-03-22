@@ -22,6 +22,7 @@ public class CoinHandler {
     public CoinHandler(ImageView view){
 
         this.view = view;
+        outcome = 0;
         random = new Random();
 
     }
@@ -47,7 +48,7 @@ public class CoinHandler {
     /* This function is used to simulate a rolling coin moving in the air*/
     public void flipCoin(){
 
-        flip = new TranslateAnimation(0,0,0,-300);
+        flip = new TranslateAnimation(0,0,0,-200);
         flip.setDuration(1000);
         flip.setRepeatCount(1);
         flip.setStartOffset(0);
@@ -85,6 +86,11 @@ public class CoinHandler {
             view.setBackgroundResource(R.drawable.tails);
         }
 
+    }
+
+    public int getCoin(){
+
+        return outcome;
     }
 
 

@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
-    /* This function restarts process*/
+    /* This function starts process*/
     private void start(){
         isRolling = false;
         arrowHandler.animateArrow();
