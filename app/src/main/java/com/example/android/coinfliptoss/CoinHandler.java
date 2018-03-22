@@ -18,11 +18,13 @@ public class CoinHandler {
     private TranslateAnimation flip;
     private Random random;
     private int outcome;
+    private boolean allow;
 
     public CoinHandler(ImageView view){
 
         this.view = view;
         outcome = 0;
+        allow = true;
         random = new Random();
 
     }
@@ -59,6 +61,7 @@ public class CoinHandler {
             @Override
             public void onAnimationStart(Animation animation) {
 
+                allow = false;
             }
             @Override
             public void onAnimationRepeat(Animation animation) {
@@ -67,6 +70,7 @@ public class CoinHandler {
             public void onAnimationEnd(Animation animation) {
 
                 setCoin();
+                allow = true;
 
 
             }
@@ -91,6 +95,11 @@ public class CoinHandler {
     public int getCoin(){
 
         return outcome;
+    }
+
+    public boolean getAllowance(){
+
+        return allow;
     }
 
 

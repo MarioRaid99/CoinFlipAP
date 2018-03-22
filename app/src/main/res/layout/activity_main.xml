@@ -68,6 +68,7 @@
        >
 
         <RadioGroup
+            android:id="@+id/radio_group"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -75,6 +76,7 @@
             android:gravity="center">
 
             <RadioButton
+                android:id="@+id/heads"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:background="@drawable/custom_radio"
@@ -86,6 +88,7 @@
 
                 />
             <RadioButton
+                android:id="@+id/tails"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:background="@drawable/custom_radio"

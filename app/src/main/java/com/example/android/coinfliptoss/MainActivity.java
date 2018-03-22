@@ -6,6 +6,8 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity{
@@ -18,9 +20,9 @@ public class MainActivity extends AppCompatActivity{
     private ImageView coin;
     private CoinHandler coinHandler;
 
-    private boolean isRolling;
-
     private TextView slide;
+
+
 
 
     /* This function implements all basic functionality on the creation of the app*/
@@ -57,13 +59,14 @@ public class MainActivity extends AppCompatActivity{
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
 
-            if (isRolling == false) {
-                coinHandler = new CoinHandler(coin);
+
+            if (coinHandler.getAllowance()) {
+
                 coinHandler.rollCoin();
                 coinHandler.flipCoin();
                 arrowHandler.stopArrow();
                 slide.setText("");
-                isRolling = true;
+
             }
             return true;
         }
@@ -83,8 +86,8 @@ public class MainActivity extends AppCompatActivity{
         empty = (ImageView) findViewById(R.id.empty_image_view);
         arrow = (ImageView) findViewById(R.id.arrow_image_view);
         coin = (ImageView) findViewById(R.id.coin_image_view);
+        coinHandler = new CoinHandler(coin);
         slide = (TextView) findViewById(R.id.slide_text_view);
-        isRolling = false;
         arrowHandler = new ArrowHandler(arrow);
 
 
@@ -92,27 +95,20 @@ public class MainActivity extends AppCompatActivity{
 
     /* This function starts process*/
     private void start(){
-        isRolling = false;
+
         arrowHandler.animateArrow();
         slide.setText("Slide to roll");
 
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
     public void onRestart(View view){
 
-        start();
+          if(coinHandler.getAllowance()){
+              start();
+          }
+
+
     }
 
 
