@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity{
     private ImageView coin;
     private CoinHandler coinHandler;
 
-    private int outcome;
+    private boolean isRolling;
 
 
     /* This function implements all basic functionality on the creation of the app*/
@@ -54,11 +54,13 @@ public class MainActivity extends AppCompatActivity{
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
 
-            coinHandler = new CoinHandler(coin);
-            coinHandler.rollCoin();
-            coinHandler.flipCoin();
-            arrowHandler.stopArrow();
-
+            if (isRolling == false) {
+                coinHandler = new CoinHandler(coin);
+                coinHandler.rollCoin();
+                coinHandler.flipCoin();
+                arrowHandler.stopArrow();
+                isRolling = true;
+            }
             return true;
         }
 
@@ -77,7 +79,7 @@ public class MainActivity extends AppCompatActivity{
         empty = (ImageView) findViewById(R.id.empty_image_view);
         arrow = (ImageView) findViewById(R.id.arrow_image_view);
         coin = (ImageView) findViewById(R.id.coin_image_view);
-
+        isRolling = false;
         arrowHandler = new ArrowHandler(arrow);
         arrowHandler.animateArrow();
 
@@ -86,6 +88,7 @@ public class MainActivity extends AppCompatActivity{
     /* This function restarts process*/
     private void restart(){
 
+        isRolling = false;
         arrowHandler.animateArrow();
     }
 
