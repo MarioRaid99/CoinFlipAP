@@ -37,7 +37,7 @@ public class CoinHandler {
     }
 
     /* This function is used to stop the rolling coin */
-    public void stopCoin(){
+    private void stopCoin(){
 
         coin.stop();
         view.setBackgroundDrawable(null);
@@ -74,9 +74,17 @@ public class CoinHandler {
     }
 
     /* This function is used to set the value of the coin*/
-    public void setCoin(){
+    private void setCoin(){
+
         stopCoin();
-        view.setBackgroundResource(R.drawable.heads);
+        outcome = random.nextInt(2);
+        if(outcome == 0){
+            view.setBackgroundResource(R.drawable.heads);
+        }
+        else{
+            view.setBackgroundResource(R.drawable.tails);
+        }
+
     }
 
 
