@@ -47,7 +47,7 @@ public class CoinHandler {
     /* This function is used to simulate a rolling coin moving in the air*/
     public void flipCoin(){
 
-        flip = new TranslateAnimation(0,0,0,-400);
+        flip = new TranslateAnimation(0,0,0,-300);
         flip.setDuration(1000);
         flip.setRepeatCount(1);
         flip.setStartOffset(0);

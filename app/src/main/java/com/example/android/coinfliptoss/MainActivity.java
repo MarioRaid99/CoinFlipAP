@@ -6,6 +6,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity{
     private CoinHandler coinHandler;
 
     private boolean isRolling;
+
+    private TextView slide;
 
 
     /* This function implements all basic functionality on the creation of the app*/
@@ -59,6 +62,7 @@ public class MainActivity extends AppCompatActivity{
                 coinHandler.rollCoin();
                 coinHandler.flipCoin();
                 arrowHandler.stopArrow();
+                slide.setText("");
                 isRolling = true;
             }
             return true;
@@ -79,17 +83,19 @@ public class MainActivity extends AppCompatActivity{
         empty = (ImageView) findViewById(R.id.empty_image_view);
         arrow = (ImageView) findViewById(R.id.arrow_image_view);
         coin = (ImageView) findViewById(R.id.coin_image_view);
+        slide = (TextView) findViewById(R.id.slide_text_view);
         isRolling = false;
         arrowHandler = new ArrowHandler(arrow);
-        arrowHandler.animateArrow();
+
 
     }
 
     /* This function restarts process*/
-    private void restart(){
-
+    private void start(){
         isRolling = false;
         arrowHandler.animateArrow();
+        slide.setText("Slide to roll");
+
     }
 
 
@@ -106,7 +112,7 @@ public class MainActivity extends AppCompatActivity{
 
     public void onRestart(View view){
 
-        restart();
+        start();
     }
 
 

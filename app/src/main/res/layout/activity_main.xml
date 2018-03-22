@@ -10,40 +10,72 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
-        <ImageView
-            android:src="@drawable/coin_1"
-            android:id="@+id/coin_image_view"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerInParent="true" />
+        android:layout_weight="1"
+        android:background="@android:color/holo_blue_light">
+
 
     </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:background="@android:color/holo_orange_light">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingBottom="8dp">
+            <ImageView
+                android:src="@drawable/coin_1"
+                android:id="@+id/coin_image_view"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp">
+            <ImageView
+                android:id="@+id/arrow_image_view"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:layout_centerInParent="true"/>
+            <ImageView
+                android:id="@+id/empty_image_view"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/slide_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:textAlignment="center"
+            android:text=" "/>
+
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
-        <ImageView
-            android:id="@+id/arrow_image_view"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"/>
-        <ImageView
-            android:id="@+id/empty_image_view"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"/>
+        android:layout_weight="3"
+        android:background="@android:color/holo_red_light">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start"
+            android:layout_margin="50dp"
+            android:onClick="onRestart"/>
 
     </RelativeLayout>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start"
-        android:layout_margin="50dp"
-        android:onClick="onRestart"/>
+
 
 
 </LinearLayout>
