@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -74,6 +75,8 @@ public class MainActivity extends AppCompatActivity{
                 slide.setText("");
 
             }
+
+
             return true;
         }
 
@@ -102,7 +105,7 @@ public class MainActivity extends AppCompatActivity{
         sequence = findViewById(R.id.sequenceTextView);
 
         arrowHandler = new ArrowHandler(arrow,slide);
-        coinHandler = new CoinHandler(coin,match,prediction,outcome,current,high,radio,sequence);
+        coinHandler = new CoinHandler(getApplicationContext(),coin,match,prediction,outcome,current,high,radio,sequence);
 
     }
 

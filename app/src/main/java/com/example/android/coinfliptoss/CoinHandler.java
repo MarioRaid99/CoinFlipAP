@@ -1,5 +1,6 @@
 package com.example.android.coinfliptoss;
 
+import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
@@ -20,6 +21,7 @@ import java.util.Random;
 
 class CoinHandler{
 
+    private static Context context;
     private ImageView view,match;
     private TextView prediction,outcome,current,high,sequence;
     private RadioGroup radio;
@@ -35,10 +37,11 @@ class CoinHandler{
     private boolean allow;
 
 
-    CoinHandler(ImageView view, ImageView match, TextView prediction,
+    CoinHandler(Context context,ImageView view, ImageView match, TextView prediction,
                 TextView outcome, TextView current,TextView high,RadioGroup radio,TextView sequence)
     {
 
+        this.context=context;
         this.view = view;
         this.match = match;
         this.prediction = prediction;
@@ -149,6 +152,8 @@ class CoinHandler{
             currentScore++;
             if(currentScore > highScore){
                 highScore = currentScore;
+                Toast toast = Toast.makeText(context,"Congratulations! New high score!", Toast.LENGTH_SHORT);
+                toast.show();
             }
             current.setText(Integer.toString(currentScore));
             high.setText(Integer.toString(highScore));
@@ -159,6 +164,8 @@ class CoinHandler{
         else{
             if(currentScore > highScore){
                 highScore = currentScore;
+                Toast toast = Toast.makeText(context,"Congratulations! New high score!", Toast.LENGTH_SHORT);
+                toast.show();
             }
             sequenceBuilder.setLength(0);
             currentScore = 0;
@@ -174,6 +181,7 @@ class CoinHandler{
 
         return allow;
     }
+
 
 
 
