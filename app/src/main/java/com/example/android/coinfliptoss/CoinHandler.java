@@ -20,8 +20,6 @@ class CoinHandler {
     private TextView prediction,outcome;
     private RadioGroup radio;
     private AnimationDrawable coin;
-    private TranslateAnimation flip;
-
 
     private Random random;
     private int predict,side;
@@ -63,7 +61,7 @@ class CoinHandler {
     /* This function is used to simulate a rolling coin moving in the air*/
     void flipCoin(){
 
-        flip = new TranslateAnimation(0,0,0,-200);
+        TranslateAnimation flip = new TranslateAnimation(0,0,0,-200);
         flip.setDuration(1000);
         flip.setRepeatCount(1);
         flip.setStartOffset(0);

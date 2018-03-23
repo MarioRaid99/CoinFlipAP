@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity{
 
     private GestureDetector gestureDetector;
 
-    private ImageView empty, arrow;
+    private ImageView empty,arrow;
     private TextView slide;
     private ArrowHandler arrowHandler;
 
@@ -83,14 +83,14 @@ public class MainActivity extends AppCompatActivity{
     /* This function initialises process*/
     private void init(){
 
-        empty = (ImageView) findViewById(R.id.empty_image_view);
-        arrow = (ImageView) findViewById(R.id.arrow_image_view);
-        coin = (ImageView) findViewById(R.id.coin_image_view);
-        slide = (TextView) findViewById(R.id.slide_text_view);
-        match = (ImageView) findViewById(R.id.match_image_view);
-        prediction = (TextView) findViewById(R.id.predict_text_view);
-        outcome = (TextView) findViewById(R.id.outcome_text_view);
-        radio = (RadioGroup) findViewById(R.id.predict_radio_group);
+        empty = findViewById(R.id.empty_image_view);
+        arrow = findViewById(R.id.arrow_image_view);
+        coin = findViewById(R.id.coin_image_view);
+        slide = findViewById(R.id.slide_text_view);
+        match = findViewById(R.id.match_image_view);
+        prediction = findViewById(R.id.predict_text_view);
+        outcome = findViewById(R.id.outcome_text_view);
+        radio = findViewById(R.id.predict_radio_group);
 
         arrowHandler = new ArrowHandler(arrow,slide);
         coinHandler = new CoinHandler(coin,match,prediction,outcome,radio);
