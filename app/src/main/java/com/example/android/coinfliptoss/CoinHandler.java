@@ -4,6 +4,9 @@ import android.graphics.drawable.AnimationDrawable;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.Random;
 
@@ -13,17 +16,27 @@ import java.util.Random;
 
 public class CoinHandler {
 
-    private ImageView view;
+    private ImageView view,match;
+    private TextView prediction,outcome;
     private AnimationDrawable coin;
     private TranslateAnimation flip;
+
+
     private Random random;
-    private int outcome;
+    private int predict,side;
     private boolean allow;
 
-    public CoinHandler(ImageView view){
+
+
+    public CoinHandler(ImageView view, ImageView match, TextView prediction,TextView outcome){
 
         this.view = view;
-        outcome = 0;
+        this.match = match;
+        this.prediction = prediction;
+        this.outcome = outcome;
+
+
+        side = 0;
         allow = true;
         random = new Random();
 
@@ -70,6 +83,8 @@ public class CoinHandler {
             public void onAnimationEnd(Animation animation) {
 
                 setCoin();
+                setOutcome();
+
                 allow = true;
 
 
@@ -82,19 +97,48 @@ public class CoinHandler {
     private void setCoin(){
 
         stopCoin();
-        outcome = random.nextInt(2);
-        if(outcome == 0){
+        side = random.nextInt(2);
+        if(side == 0){
             view.setBackgroundResource(R.drawable.heads);
+            outcome.setText("Heads");
+
         }
         else{
             view.setBackgroundResource(R.drawable.tails);
+            outcome.setText("Tails");
         }
 
     }
 
+    public void setPrediction(int p){
+
+        predict = p;
+        if(predict == 0){
+            prediction.setText("You predicted Heads");
+        }
+        else{
+            prediction.setText("You predicted Tails");
+        }
+
+
+    }
+
+    private void setOutcome(){
+
+        if(predict == getCoin()){
+
+            match.setBackgroundResource(R.drawable.won);
+
+        }
+        else{
+
+            match.setBackgroundResource(R.drawable.lost);
+        }
+    }
+
     public int getCoin(){
 
-        return outcome;
+        return side;
     }
 
     public boolean getAllowance(){

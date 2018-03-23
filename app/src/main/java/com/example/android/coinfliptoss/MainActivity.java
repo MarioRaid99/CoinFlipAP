@@ -1,5 +1,6 @@
 package com.example.android.coinfliptoss;
 
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.GestureDetector;
@@ -15,12 +16,15 @@ public class MainActivity extends AppCompatActivity{
     private GestureDetector gestureDetector;
 
     private ImageView empty, arrow;
+    private TextView slide;
     private ArrowHandler arrowHandler;
 
-    private ImageView coin;
+    private ImageView coin,match;
+    private TextView prediction,outcome;
     private CoinHandler coinHandler;
 
-    private TextView slide;
+
+
 
 
 
@@ -61,7 +65,6 @@ public class MainActivity extends AppCompatActivity{
 
 
             if (coinHandler.getAllowance()) {
-
                 coinHandler.rollCoin();
                 coinHandler.flipCoin();
                 arrowHandler.stopArrow();
@@ -86,29 +89,42 @@ public class MainActivity extends AppCompatActivity{
         empty = (ImageView) findViewById(R.id.empty_image_view);
         arrow = (ImageView) findViewById(R.id.arrow_image_view);
         coin = (ImageView) findViewById(R.id.coin_image_view);
-        coinHandler = new CoinHandler(coin);
         slide = (TextView) findViewById(R.id.slide_text_view);
+        match = (ImageView) findViewById(R.id.match_image_view);
+        prediction = (TextView) findViewById(R.id.predict_text_view);
+        outcome = (TextView) findViewById(R.id.outcome_text_view);
+
         arrowHandler = new ArrowHandler(arrow);
+        coinHandler = new CoinHandler(coin,match,prediction,outcome);
+
 
 
     }
 
     /* This function starts process*/
-    private void start(){
+    private void start(int predict){
 
-        arrowHandler.animateArrow();
-        slide.setText("Slide to roll");
+        outcome.setText(null);
+        match.setBackgroundResource(R.drawable.arrow_0);
+
+        if (coinHandler.getAllowance()) {
+            arrowHandler.animateArrow();
+            slide.setText("Slide to roll");
+            coinHandler.setPrediction(predict);
+
+        }
+
 
     }
 
 
-    public void onRestart(View view){
+    public void selectHeads (View view){
+        start(0);
 
-          if(coinHandler.getAllowance()){
-              start();
-          }
+    }
+    public void selectTails (View view) {
 
-
+        start(1);
     }
 
 
