@@ -70,7 +70,7 @@ class CoinHandler {
     /* This function is used to simulate a rolling coin moving in the air*/
     void flipCoin(){
 
-        TranslateAnimation flip = new TranslateAnimation(0,0,0,-200);
+        TranslateAnimation flip = new TranslateAnimation(0,0,0,-100);
         flip.setDuration(1000);
         flip.setRepeatCount(1);
         flip.setStartOffset(0);
@@ -138,7 +138,11 @@ class CoinHandler {
         if(predict == side){
 
             currentScore++;
+            if(currentScore > highScore){
+                highScore = currentScore;
+            }
             current.setText(Integer.toString(currentScore));
+            high.setText(Integer.toString(highScore));
             match.setBackgroundResource(R.drawable.won);
 
         }
