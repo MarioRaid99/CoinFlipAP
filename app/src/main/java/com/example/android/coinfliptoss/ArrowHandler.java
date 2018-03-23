@@ -8,19 +8,19 @@ import android.widget.TextView;
  * Created by inser on 3/22/2018.
  */
 
-public class ArrowHandler {
+class ArrowHandler {
 
     private AnimationDrawable arrow;
     private ImageView view;
     private TextView slide;
 
-    public ArrowHandler(ImageView view, TextView slide){
+    ArrowHandler(ImageView view, TextView slide){
         this.view = view;
         this.slide = slide;
     }
 
     /* This function is used to create the moving arrow to indicate swipe movement */
-    public void animateArrow(){
+    void animateArrow(){
 
         slide.setText("Slide to roll");
         view.setBackgroundDrawable(null);
@@ -30,7 +30,7 @@ public class ArrowHandler {
     }
 
     /* This function is used to stop the moving arrow */
-    public void stopArrow(){
+    void stopArrow(){
 
         arrow.stop();
         view.setBackgroundDrawable(null);

@@ -7,7 +7,6 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
 
 import java.util.Random;
 
@@ -15,7 +14,7 @@ import java.util.Random;
  * Created by inser on 3/22/2018.
  */
 
-public class CoinHandler {
+class CoinHandler {
 
     private ImageView view,match;
     private TextView prediction,outcome;
@@ -29,8 +28,7 @@ public class CoinHandler {
     private boolean allow;
 
 
-
-    public CoinHandler(ImageView view, ImageView match, TextView prediction, TextView outcome, RadioGroup radio){
+    CoinHandler(ImageView view, ImageView match, TextView prediction, TextView outcome, RadioGroup radio){
 
         this.view = view;
         this.match = match;
@@ -47,7 +45,7 @@ public class CoinHandler {
 
 
     /* This function is used to create the rolling coin */
-    public void rollCoin(){
+    void rollCoin(){
 
         view.setImageDrawable(null);
         view.setBackgroundResource(R.drawable.ic_coin_roll);
@@ -63,7 +61,7 @@ public class CoinHandler {
     }
 
     /* This function is used to simulate a rolling coin moving in the air*/
-    public void flipCoin(){
+    void flipCoin(){
 
         flip = new TranslateAnimation(0,0,0,-200);
         flip.setDuration(1000);
@@ -114,7 +112,7 @@ public class CoinHandler {
     }
 
     /* This function is used to set the user's prediction*/
-    public void setPrediction(int p){
+    void setPrediction(int p){
 
         predict = p;
         if(predict == 0){
@@ -142,7 +140,7 @@ public class CoinHandler {
     }
 
     /* This function is used to disable some function while the coin animates */
-    public boolean getAllowance(){
+    boolean getAllowance(){
 
         return allow;
     }
