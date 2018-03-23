@@ -4,6 +4,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -18,6 +19,7 @@ public class CoinHandler {
 
     private ImageView view,match;
     private TextView prediction,outcome;
+    private RadioGroup radio;
     private AnimationDrawable coin;
     private TranslateAnimation flip;
 
@@ -28,12 +30,13 @@ public class CoinHandler {
 
 
 
-    public CoinHandler(ImageView view, ImageView match, TextView prediction,TextView outcome){
+    public CoinHandler(ImageView view, ImageView match, TextView prediction, TextView outcome, RadioGroup radio){
 
         this.view = view;
         this.match = match;
         this.prediction = prediction;
         this.outcome = outcome;
+        this.radio = radio;
 
 
         side = 0;
@@ -59,7 +62,6 @@ public class CoinHandler {
         view.setBackgroundDrawable(null);
     }
 
-
     /* This function is used to simulate a rolling coin moving in the air*/
     public void flipCoin(){
 
@@ -84,7 +86,8 @@ public class CoinHandler {
 
                 setCoin();
                 setOutcome();
-
+                prediction.setText("Tap to predict");
+                radio.clearCheck();
                 allow = true;
 
 
@@ -110,6 +113,7 @@ public class CoinHandler {
 
     }
 
+    /* This function is used to set the user's prediction*/
     public void setPrediction(int p){
 
         predict = p;
@@ -123,9 +127,10 @@ public class CoinHandler {
 
     }
 
+    /* This function is used to set the outcome of the prediction */
     private void setOutcome(){
 
-        if(predict == getCoin()){
+        if(predict == side){
 
             match.setBackgroundResource(R.drawable.won);
 
@@ -136,11 +141,7 @@ public class CoinHandler {
         }
     }
 
-    public int getCoin(){
-
-        return side;
-    }
-
+    /* This function is used to disable some function while the coin animates */
     public boolean getAllowance(){
 
         return allow;

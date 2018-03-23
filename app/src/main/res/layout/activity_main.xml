@@ -68,7 +68,7 @@
        >
 
         <RadioGroup
-            android:id="@+id/radio_group"
+            android:id="@+id/predict_radio_group"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"

@@ -19,13 +19,10 @@ public class MainActivity extends AppCompatActivity{
     private TextView slide;
     private ArrowHandler arrowHandler;
 
+    private RadioGroup radio;
     private ImageView coin,match;
     private TextView prediction,outcome;
     private CoinHandler coinHandler;
-
-
-
-
 
 
 
@@ -93,11 +90,10 @@ public class MainActivity extends AppCompatActivity{
         match = (ImageView) findViewById(R.id.match_image_view);
         prediction = (TextView) findViewById(R.id.predict_text_view);
         outcome = (TextView) findViewById(R.id.outcome_text_view);
+        radio = (RadioGroup) findViewById(R.id.predict_radio_group);
 
-        arrowHandler = new ArrowHandler(arrow);
-        coinHandler = new CoinHandler(coin,match,prediction,outcome);
-
-
+        arrowHandler = new ArrowHandler(arrow,slide);
+        coinHandler = new CoinHandler(coin,match,prediction,outcome,radio);
 
     }
 
@@ -109,15 +105,14 @@ public class MainActivity extends AppCompatActivity{
 
         if (coinHandler.getAllowance()) {
             arrowHandler.animateArrow();
-            slide.setText("Slide to roll");
             coinHandler.setPrediction(predict);
-
         }
 
 
     }
 
 
+    /* This function sets selected prediction */
     public void selectHeads (View view){
         start(0);
 
