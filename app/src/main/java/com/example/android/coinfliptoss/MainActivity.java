@@ -1,5 +1,6 @@
 package com.example.android.coinfliptoss;
 
+import android.content.SharedPreferences;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,8 +25,6 @@ public class MainActivity extends AppCompatActivity{
     private ImageView coin,match;
     private TextView prediction,outcome,current,high,sequence;
     private CoinHandler coinHandler;
-
-
 
     /* This function implements all basic functionality on the creation of the app*/
     @Override
@@ -67,16 +66,12 @@ public class MainActivity extends AppCompatActivity{
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
 
-
             if (coinHandler.getAllowance()) {
                 coinHandler.rollCoin();
                 coinHandler.flipCoin();
                 arrowHandler.stopArrow();
                 slide.setText("");
-
             }
-
-
             return true;
         }
 
@@ -87,6 +82,11 @@ public class MainActivity extends AppCompatActivity{
     protected void onStart(){
         super.onStart();
         init();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
     /* This function initialises process*/
@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity{
 
         arrowHandler = new ArrowHandler(arrow,slide);
         coinHandler = new CoinHandler(getResources(),getApplicationContext(),coin,match,prediction,outcome,current,high,radio,sequence);
+        high.setText(coinHandler.getHighScore());
 
     }
 
@@ -119,10 +120,7 @@ public class MainActivity extends AppCompatActivity{
             arrowHandler.animateArrow();
             coinHandler.setPrediction(predict);
         }
-
-
     }
-
 
     /* This function sets selected prediction */
     public void selectHeads (View view){

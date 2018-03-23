@@ -1,6 +1,7 @@
 package com.example.android.coinfliptoss;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -16,13 +17,16 @@ import org.w3c.dom.Text;
 
 import java.util.Random;
 
+import static android.content.Context.MODE_PRIVATE;
+
 /**
  * Created by inser on 3/22/2018.
  */
 
 class CoinHandler{
 
-    private static Context context;
+    private SharedPreferences mSharedPreferences;
+    private Context context;
     private ImageView view,match;
     private TextView prediction,outcome,current,high,sequence;
     private RadioGroup radio;
@@ -43,8 +47,10 @@ class CoinHandler{
                 TextView outcome, TextView current,TextView high,RadioGroup radio,TextView sequence)
     {
 
+
         this.resources=resources;
         this.context=context;
+        mSharedPreferences = context.getSharedPreferences("mSharedHighscore", Context.MODE_PRIVATE);
         this.view = view;
         this.match = match;
         this.prediction = prediction;
@@ -54,9 +60,8 @@ class CoinHandler{
         this.radio = radio;
         this.sequence = sequence;
         sequenceBuilder = new StringBuilder();
-
-
-        currentScore = highScore = side = 0;
+        highScore = mSharedPreferences.getInt("mSharedHighscore",Context.MODE_PRIVATE);
+        currentScore = side = 0;
         allow = true;
         random = new Random();
 
@@ -155,6 +160,9 @@ class CoinHandler{
             currentScore++;
             if(currentScore > highScore){
                 highScore = currentScore;
+                SharedPreferences.Editor editor = mSharedPreferences.edit();
+                editor.putInt("mSharedHighscore",highScore);
+                editor.commit();
                 Toast toast = Toast.makeText(context,resources.getString(R.string.CongratulationsNewHighscore), Toast.LENGTH_SHORT);
                 toast.show();
             }
@@ -167,6 +175,9 @@ class CoinHandler{
         else{
             if(currentScore > highScore){
                 highScore = currentScore;
+                SharedPreferences.Editor editor = mSharedPreferences.edit();
+                editor.putInt("mSharedHighscore",highScore);
+                editor.commit();
                 Toast toast = Toast.makeText(context,resources.getString(R.string.CongratulationsNewHighscore), Toast.LENGTH_SHORT);
                 toast.show();
             }
@@ -185,6 +196,8 @@ class CoinHandler{
         return allow;
     }
 
-
+    public String getHighScore(){
+        return String.valueOf(highScore);
+    }
 
 }
