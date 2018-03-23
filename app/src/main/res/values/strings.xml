@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CoinFlipToss</string>
+    <string name="title_my_activity">MainActivity</string>
 </resources>

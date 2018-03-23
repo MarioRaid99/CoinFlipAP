@@ -34,6 +34,12 @@ public class MainActivity extends AppCompatActivity{
         onDetectGesture();
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        // Make sure to call the super method so that the states of our views are saved
+        super.onSaveInstanceState(outState);
+    }
+
     /* This function is used to detect gestures on the screen */
     private void onDetectGesture(){
         CustomGestureDetector customGestureDetector = new CustomGestureDetector();
