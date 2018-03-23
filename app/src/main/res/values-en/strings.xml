@@ -1,6 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">FlipTheCoin</string>
-    <string name="title_my_activity" translatable="false"></string>
     <string name="currentScore">Current Score</string>
     <string name="HighScore">High Score</string>
     <string name="Welcome">Welcome!</string>

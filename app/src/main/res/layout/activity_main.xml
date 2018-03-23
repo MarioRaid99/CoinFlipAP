@@ -32,7 +32,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Current Score" />
+                    android:text="@string/currentScore"/>
 
                 <TextView
                     android:id="@+id/current_text_view"
@@ -65,7 +65,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="High Score" />
+                    android:text="@string/HighScore" />
 
                 <TextView
                     android:id="@+id/high_text_view"
@@ -84,7 +84,7 @@
             android:id="@+id/sequenceTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome!"
+            android:text="@string/Welcome"
             android:layout_centerHorizontal="true"
             android:padding="2dp"/>
 
@@ -158,7 +158,7 @@
                 android:layout_height="80dp"
                 android:background="@drawable/custom_radio"
                 android:button="@android:color/transparent"
-                android:text="Heads"
+                android:text="@string/heads"
                 android:textAlignment="center"
                 android:layout_margin="16dp"
                 android:onClick="selectHeads"/>
@@ -169,7 +169,7 @@
                 android:layout_height="80dp"
                 android:background="@drawable/custom_radio"
                 android:button="@android:color/transparent"
-                android:text="Tails"
+                android:text="@string/tails"
                 android:textAlignment="center"
                 android:layout_margin="16dp"
                 android:onClick="selectTails"/>
@@ -180,7 +180,7 @@
             android:id="@+id/predict_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tap to predict"
+            android:text="@string/tapToPredict"
             android:textAlignment="center"
             android:layout_marginTop="8dp"/>
 

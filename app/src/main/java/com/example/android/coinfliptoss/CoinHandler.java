@@ -1,6 +1,7 @@
 package com.example.android.coinfliptoss;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
@@ -35,12 +36,14 @@ class CoinHandler{
     private Random random;
     private int predict,side;
     private boolean allow;
+    private Resources resources;
 
 
-    CoinHandler(Context context,ImageView view, ImageView match, TextView prediction,
+    CoinHandler(Resources resources,Context context,ImageView view, ImageView match, TextView prediction,
                 TextView outcome, TextView current,TextView high,RadioGroup radio,TextView sequence)
     {
 
+        this.resources=resources;
         this.context=context;
         this.view = view;
         this.match = match;
@@ -100,7 +103,7 @@ class CoinHandler{
 
                 setCoin();
                 setOutcome();
-                prediction.setText("Tap to predict");
+                prediction.setText(resources.getString(R.string.tapToPredict));
                 radio.clearCheck();
                 allow = true;
 
@@ -117,14 +120,14 @@ class CoinHandler{
         side = random.nextInt(2);
         if(side == 0){
             view.setBackgroundResource(R.drawable.heads);
-            outcome.setText("Heads");
-            predictionString = "H";
+            outcome.setText(resources.getString(R.string.heads));
+            predictionString = resources.getString(R.string.headsCharacter);
 
         }
         else{
             view.setBackgroundResource(R.drawable.tails);
-            outcome.setText("Tails");
-            predictionString = "T";
+            outcome.setText(resources.getString(R.string.tails));
+            predictionString = resources.getString(R.string.tailsCharacter);
         }
 
     }
@@ -134,11 +137,11 @@ class CoinHandler{
 
         predict = p;
         if(predict == 0){
-            prediction.setText("You predicted Heads");
+            prediction.setText(R.string.youPredictedHeads);
 
         }
         else{
-            prediction.setText("You predicted Tails");
+            prediction.setText(R.string.youPredictedTails);
         }
 
 
@@ -152,7 +155,7 @@ class CoinHandler{
             currentScore++;
             if(currentScore > highScore){
                 highScore = currentScore;
-                Toast toast = Toast.makeText(context,"Congratulations! New high score!", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(context,resources.getString(R.string.CongratulationsNewHighscore), Toast.LENGTH_SHORT);
                 toast.show();
             }
             current.setText(Integer.toString(currentScore));
@@ -164,7 +167,7 @@ class CoinHandler{
         else{
             if(currentScore > highScore){
                 highScore = currentScore;
-                Toast toast = Toast.makeText(context,"Congratulations! New high score!", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(context,resources.getString(R.string.CongratulationsNewHighscore), Toast.LENGTH_SHORT);
                 toast.show();
             }
             sequenceBuilder.setLength(0);
@@ -181,7 +184,6 @@ class CoinHandler{
 
         return allow;
     }
-
 
 
 

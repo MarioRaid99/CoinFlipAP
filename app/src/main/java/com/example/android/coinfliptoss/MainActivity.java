@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity{
         sequence = findViewById(R.id.sequenceTextView);
 
         arrowHandler = new ArrowHandler(arrow,slide);
-        coinHandler = new CoinHandler(getApplicationContext(),coin,match,prediction,outcome,current,high,radio,sequence);
+        coinHandler = new CoinHandler(getResources(),getApplicationContext(),coin,match,prediction,outcome,current,high,radio,sequence);
 
     }
 
