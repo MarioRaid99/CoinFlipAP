@@ -19,14 +19,14 @@
             android:layout_height="wrap_content"
             android:text="@string/Welcome"
             android:layout_centerHorizontal="true"
-            android:padding="2dp"/>
+            android:padding="4dp"/>
 
         <RelativeLayout
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_margin="20dp"
+            android:layout_margin="30dp"
             android:background="@android:color/white">
 
             <LinearLayout
@@ -92,13 +92,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-            <ImageView
-                android:src="@drawable/heads"
-                android:id="@+id/coin_image_view"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"/>
+        <ImageView
+            android:src="@drawable/heads"
+            android:id="@+id/coin_image_view"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"/>
 
         <RelativeLayout
             android:id="@+id/rlcoin"
@@ -179,13 +179,12 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="10dp">
 
             <ImageView
                 android:id="@+id/match_image_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_centerInParent="true"/>
             <TextView
                 android:id="@+id/outcome_text_view"
@@ -198,7 +197,6 @@
         </RelativeLayout>
 
     </LinearLayout>
-
 
 
 </LinearLayout>
