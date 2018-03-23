@@ -8,6 +8,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 
+import org.w3c.dom.Text;
+
 import java.util.Random;
 
 /**
@@ -17,25 +19,32 @@ import java.util.Random;
 class CoinHandler {
 
     private ImageView view,match;
-    private TextView prediction,outcome;
+    private TextView prediction,outcome,current,high;
     private RadioGroup radio;
     private AnimationDrawable coin;
+
+
+    private int highScore, currentScore;
 
     private Random random;
     private int predict,side;
     private boolean allow;
 
 
-    CoinHandler(ImageView view, ImageView match, TextView prediction, TextView outcome, RadioGroup radio){
+    CoinHandler(ImageView view, ImageView match, TextView prediction,
+                TextView outcome, TextView current,TextView high,RadioGroup radio)
+    {
 
         this.view = view;
         this.match = match;
         this.prediction = prediction;
         this.outcome = outcome;
+        this.current = current;
+        this.high = high;
         this.radio = radio;
 
 
-        side = 0;
+        currentScore = highScore = side = 0;
         allow = true;
         random = new Random();
 
@@ -128,11 +137,18 @@ class CoinHandler {
 
         if(predict == side){
 
+            currentScore++;
+            current.setText(Integer.toString(currentScore));
             match.setBackgroundResource(R.drawable.won);
 
         }
         else{
-
+            if(currentScore > highScore){
+                highScore = currentScore;
+            }
+            currentScore = 0;
+            current.setText(Integer.toString(currentScore));
+            high.setText(Integer.toString(highScore));
             match.setBackgroundResource(R.drawable.lost);
         }
     }
