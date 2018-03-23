@@ -15,6 +15,9 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity{
 
+    private static final String STATE_COUNTER = "counter";
+
+    private int mCounter;
     private GestureDetector gestureDetector;
 
     private ImageView empty,arrow;
@@ -30,6 +33,9 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (savedInstanceState!= null){
+            mCounter = savedInstanceState.getInt(STATE_COUNTER,0);
+        }
         setContentView(R.layout.activity_main);
         onDetectGesture();
     }
@@ -38,6 +44,8 @@ public class MainActivity extends AppCompatActivity{
     protected void onSaveInstanceState(Bundle outState) {
         // Make sure to call the super method so that the states of our views are saved
         super.onSaveInstanceState(outState);
+        // Save our own state now
+        outState.putInt(STATE_COUNTER,mCounter);
     }
 
     /* This function is used to detect gestures on the screen */
