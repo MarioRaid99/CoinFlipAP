@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity{
         radio = findViewById(R.id.predict_radio_group);
         sequence = findViewById(R.id.sequenceTextView);
 
-        arrowHandler = new ArrowHandler(arrow,slide);
+        arrowHandler = new ArrowHandler(getResources(),arrow,slide);
         coinHandler = new CoinHandler(getResources(),getApplicationContext(),coin,match,prediction,outcome,current,high,radio,sequence);
         high.setText(coinHandler.getHighScore());
 

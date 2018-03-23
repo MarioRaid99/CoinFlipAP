@@ -12,4 +12,5 @@
     <string name="youPredictedHeads">You predicted Heads</string>
     <string name="youPredictedTails">You predicted Tails</string>
     <string name="CongratulationsNewHighscore">Congratulations New Highscore!</string>
+    <string name="SlideToRoll">Slide to roll</string>
 </resources>

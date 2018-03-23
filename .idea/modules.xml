@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CoinFlipToss.iml" filepath="$PROJECT_DIR$/CoinFlipToss.iml" />
+      <module fileurl="file://C:\Users\Alexandros Andreou\AndroidStudioProjects\coin-flip\CoinFlipToss.iml" filepath="C:\Users\Alexandros Andreou\AndroidStudioProjects\coin-flip\CoinFlipToss.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/coin-flip.iml" filepath="$PROJECT_DIR$/coin-flip.iml" />
     </modules>
   </component>
 </project>
