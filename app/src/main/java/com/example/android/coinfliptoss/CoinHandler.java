@@ -191,11 +191,11 @@ class CoinHandler{
     }
 
     /* This function is used to disable some function while the coin animates */
-    boolean getAllowance(){
-
+    public boolean getAllowance(){
         return allow;
     }
 
+    /*This function is used for saving the passes the HighScore in the MainActivity*/
     public String getHighScore(){
         return String.valueOf(highScore);
     }
