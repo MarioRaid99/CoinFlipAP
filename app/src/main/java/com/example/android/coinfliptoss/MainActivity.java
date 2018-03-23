@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity{
 
     private RadioGroup radio;
     private ImageView coin,match;
-    private TextView prediction,outcome,current,high;
+    private TextView prediction,outcome,current,high,sequence;
     private CoinHandler coinHandler;
 
 
@@ -93,9 +93,10 @@ public class MainActivity extends AppCompatActivity{
         current = findViewById(R.id.current_text_view);
         high = findViewById(R.id.high_text_view);
         radio = findViewById(R.id.predict_radio_group);
+        sequence = findViewById(R.id.sequenceTextView);
 
         arrowHandler = new ArrowHandler(arrow,slide);
-        coinHandler = new CoinHandler(coin,match,prediction,outcome,current,high,radio);
+        coinHandler = new CoinHandler(coin,match,prediction,outcome,current,high,radio,sequence);
 
     }
 
