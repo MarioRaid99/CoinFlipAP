@@ -20,7 +20,9 @@ import java.util.Random;
 import static android.content.Context.MODE_PRIVATE;
 
 /**
- * Created by inser on 3/22/2018.
+ *          This class Handles the Coin animation and updates the attributes
+ *                   and views so the game works properly.
+ *
  */
 
 class CoinHandler{

@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
- * Created by inser on 3/22/2018.
+ *  This class Handles the Arrow animation.
  */
 
 class ArrowHandler {

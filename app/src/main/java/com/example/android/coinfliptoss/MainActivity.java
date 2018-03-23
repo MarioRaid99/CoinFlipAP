@@ -13,6 +13,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ *     Main Activity controls the logic of the game.
+ */
 public class MainActivity extends AppCompatActivity{
 
     private static final String STATE_COUNTER = "counter";
